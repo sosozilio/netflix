@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<div class="text-center p-5 bg-light border">
+
+  <h1>Central de Atendimento</h1>
+  <p>Realize o login para acompanhar os seus chamados</p> 
+ 
+    <form>
+
+           <label for="for">Login:</label>
+           <input type="email" name="login" class="form-control">
+           <label type="for">Senha:</label>
+           <input type="password" name="senha" class="form-control">
+           <input type="submit" class="btn btn-secondary mt-3" value="login">
+
+    </form>
+
+</div>
+{% endblock %}
