@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, session, redirect, jsonify
 from flask_mysqldb import MySQL 
 from flask_bcrypt import Bcrypt 
 from datetime import date
