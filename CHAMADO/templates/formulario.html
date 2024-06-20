@@ -1,20 +1,35 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-<div class=' p-5 bg-light border'>
+<div class=" p-5 bg-light border ">
     <h1>Cadastro de novo usuário</h1>
     <p>Para acessar o sistema preencha os campos abaixo</p>
 
-    <form method='post' action='{{ url_for('consumidorInsert')}}'>
-        <label for='for'>Nome:</label>
-          <input type='text' name='NomeDoConsumidor' class='form-control'>
-        <label for='for'>E-mail</label>
-          <input type ='email' name='email' class='form-control'>
-        <label for='for'>Celular:</label>
-          <input type='text' name='celular' class='form-control'>
-        <label for='for'>Senha:</label>
-          <input type='password' name='senha' class='form-control'>
-        <input type='submit' class='btn btn-secondary mt-3' value='Cadastro'>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-primary" role="alert">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}
+   
+
+
+    <form method="post" action="{{ url_for('consumidorInsert')}}">
+        <label for="for">Nome:</label>
+        <input type="text" name="nomeDoConsumidor" class="form-control">
+        <label for="for">Email:</label>
+        <input type="email" name="email" class="form-control">
+        <label for="for">Celular:</label>
+        <input type="text" name="celular" class="form-control">
+        <label for="for">Senha:</label>
+        <input type="password" name="senha" class="form-control">
+        <input type="submit" class="btn btn-secondary mt-3" value="Cadastrar">
     </form>
 </div>
 {% endblock %}
