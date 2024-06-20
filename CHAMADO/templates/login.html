@@ -2,19 +2,27 @@
 
 {% block conteudo %}
 <div class="text-center p-5 bg-light border">
+    <h1>Central de Atendimento</h1>
+    <p>Realize o login para acompanhar os seus chamados</p>
 
-  <h1>Central de Atendimento</h1>
-  <p>Realize o login para acompanhar os seus chamados</p> 
- 
-    <form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endwith %}
 
-           <label for="for">Login:</label>
-           <input type="email" name="login" class="form-control">
-           <label type="for">Senha:</label>
-           <input type="password" name="senha" class="form-control">
-           <input type="submit" class="btn btn-secondary mt-3" value="login">
-
+    <form method="post" action="{{ url_for('loginConsumidor') }}">
+        <label for="for">Login:</label>
+        <input type="email" name="email" class="form-control">
+        <label for="for">Senha:</label>
+        <input type="password" name="password" class="form-control">
+        <input type="submit" class="btn btn-secondary mt-3" value="Login">
     </form>
-
 </div>
 {% endblock %}
